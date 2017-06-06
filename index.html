@@ -1,0 +1,884 @@
+<!doctype html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+      <title>Portals? uPortal!? What is this Béchamel?</title>
+
+      <meta name="description" content="Presentation: Portal? uPortal!? What is this béchamel?">
+      <meta name="author" content="Christian Cousquer">
+
+      <meta name="apple-mobile-web-app-capable" content="yes">
+      <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+      <link rel="stylesheet" href="css/reveal.css">
+      <link rel="stylesheet" href="css/theme/white.css" id="theme">
+
+      <!-- Theme used for syntax highlighting of code -->
+      <link rel="stylesheet" href="lib/css/zenburn.css">
+
+      <!-- Theme used for 3D Cube -->
+
+      <style>
+
+         .container-cube {
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            perspective: 1000px;
+            text-align:center;
+            margin:100px auto;
+            left:60%;
+         }
+
+         #cube {
+
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            transform-style: preserve-3d;
+            -webkit-animation: turnaround 5s linear infinite;
+         }
+
+         #cube figure {
+            text-align:center;
+            background:rgba(152,189,239,0.51);
+            width: 196px;
+            height: 196px;
+            display: block;
+            position: absolute;
+            box-shadow: 0px 0px 20px 10px rgba(255,255,255,0.6) inset;
+            border: 2px dashed white;
+            box-shadow: 0px 0px 50px 50px rgba(152,189,239,0.51);
+         }
+         #cube .front  { transform: rotateY(   0deg ) translateZ( 100px ); }
+         #cube .back   { transform: rotateX( 180deg ) translateZ( 100px ); }
+         #cube .right  { transform: rotateY(  90deg ) translateZ( 100px ); }
+         #cube .left   { transform: rotateY( -90deg ) translateZ( 100px ); }
+         #cube .top    { transform: rotateX(  90deg ) translateZ( 100px ); }
+         #cube .bottom { transform: rotateX( -90deg ) translateZ( 100px ); }
+
+         @-webkit-keyframes turnaround {
+            0%{transform:rotateX(0deg) rotateZ(0deg) rotateY(0deg);}
+            100%{transform:rotateX(360deg) rotateZ(360deg) rotateY(360deg);}
+         }
+
+
+      </style>
+
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+
+
+      <!-- Printing and PDF exports -->
+      <script>
+         var link = document.createElement( 'link' );
+         link.rel = 'stylesheet';
+         link.type = 'text/css';
+         link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+         document.getElementsByTagName( 'head' )[0].appendChild( link );
+      </script>
+
+
+      <!--[if lt IE 9]>
+<script src="lib/js/html5shiv.js"></script>
+<![endif]-->
+   </head>
+   <body>
+      <div class="reveal">
+         <div class="slides">
+
+            <section data-transition="convex" data-background="assets/artworks/audiard.jpg" data-background-repeat="none" data-background-size="100%">
+               <span style="border: none;
+    position: absolute;
+    font-size: 1.5rem;
+    z-index: 10005;
+    right: 2%;
+    margin-top:430px"><img src="assets/artworks/apereo.png" style="width:100px; height:100px; right:10%; border:none !important; " ></span>
+               <h1 class="hljs" style="font-size:2.5rem; overflow:hidden; color: #fff; margin-top:380px; position:absolute;">&nbsp;Portals? uPortal!? What is this Béchamel?&nbsp;</h1>
+               <!--<pre><code class="hljs" style="word-wrap: break-word;">&lt;section data-background="image.png" data-background-repeat="repeat" data-background-size="100px"&gt;</code></pre>-->
+               
+            </section>
+
+            <section data-background-video="http://lb-cpm-dsi1.cpm.upmc.fr/test_ent/bechamel/assets/videos/chap_0.mp4,http://lb-cpm-dsi1.cpm.upmc.fr/test_ent/bechamel/assets/videos/chap_0.webm" data-background-color="#000000">
+
+               <!--<div style="background-color: rgba(0, 0, 0, 0.1); color: #fff; bottom: 0; font-size:1.2rem">
+<p class="fragment" style="background-color: rgba(0, 0, 0, 1); color: #fff;position:absolute; bottom:-1500%; width: 100%; font-size:1.5rem; z-index:5;">Why not a Sherpa too!</p>
+<p class="fragment" style="background-color: rgba(0, 0, 0, 1); color: #fff;position:absolute; bottom:-1500%; width: 100%; font-size:1.5rem; z-index:10;">I'm going to Paris, not Tibet!</p>
+<p class="fragment" style="background-color: rgba(0, 0, 0, 1); color: #fff;position:absolute; bottom:-1500%; width: 100%; font-size:1.5rem; z-index:15;">Mr Fernand, the fair will be busy by Sunday.</p>
+<p class="fragment" style="background-color: rgba(0, 0, 0, 1); color: #fff;position:absolute; bottom:-1500%; width: 100%; font-size:1.5rem; z-index:15;">If you could get back...</p>
+<p class="fragment" style="background-color: rgba(0, 0, 0, 1); color: #fff;position:absolute; bottom:-1500%; width: 100%; font-size:1.5rem; z-index:20;">I said I'd take two days! </p>
+<p class="fragment" style="background-color: rgba(0, 0, 0, 1); color: #fff;position:absolute; bottom:-1500%; width: 100%; font-size:1.5rem; z-index:25;">... Can't you display ten tractors without me? no?</p>
+<p class="fragment" style="background-color: rgba(0, 0, 0, 1); color: #fff;position:absolute; bottom:-1500%; width: 100%; font-size:1.5rem; z-index:30;">... And don't break down again!</p>
+<p class="fragment" style="background-color: rgba(0, 0, 0, 1); color: #fff;position:absolute; bottom:-1500%; width: 100%; font-size:1.5rem; z-index:35;">What broke down?</p>
+<p class="fragment" style="background-color: rgba(0, 0, 0, 1); color: #fff;position:absolute; bottom:-1500%; width: 100%; font-size:1.5rem; z-index:40;">... The breakdown truck! </p>
+
+
+</div>-->
+            </section>
+
+            <section data-transition="convex" >
+
+               <section data-transition="convex" >
+                  <h2 class="hljs" style="font-size:2.5rem; overflow:hidden; color: #fff; color: #fff;">~ About me ~</h2>
+                  <p>Christian Cousquer</p>
+               </section>
+
+               <section data-transition="convex" >
+                  <h2 class="hljs"  style="font-size:2.5rem; overflow:hidden; color: #fff; ">~ a. k. a. ~</h2>
+                  <h3>“@prairycat&rdquo; <span class="emoji">🐈</span></h3>
+                  <a href="#/2/2">
+                     <img width="200" height="200" data-src="assets/artworks/prairycat.jpeg" alt="hood">
+                  </a>
+               </section>
+
+               <section data-transition="convex" >
+                  <h2 class="hljs" style="font-size:2.5rem; overflow:hidden; color: #fff; ">~ a. k. a. ~</h2>
+                  <h3>“the hood&rdquo; <span class="emoji">😄</span></h3>
+                  <a href="#/2/3">
+                     <img width="200" height="200" data-src="assets/artworks/hood.png" alt="hood">
+                  </a>
+               </section>
+
+               <section data-transition="convex" >
+                  <h2 class="hljs" style="font-size:2.5rem; overflow:hidden; color: #fff; ">~ a. k. a. ~</h2>
+                  <h3>“Long range shooter&rdquo;</h3>
+                  <a href="#/2/4">
+                     <img width="250" height="200" data-src="assets/artworks/1000yard_b.jpg" alt="hood">
+                  </a>
+               </section>
+
+               <section data-transition="convex" >
+                  <h2 class="hljs" style="font-size:2.5rem; overflow:hidden; color: #fff;">~ Recently known as  ~</h2>
+                  <h3>“Dr House&rdquo;</h3>
+                  <p>Because of the cane <span class="emoji">🌂</span>...</p>
+                  <a href="#/2/5">
+                     <img width="400"  data-src="assets/artworks/house.jpg" alt="Up arrow">
+                  </a>
+               </section>
+
+               <section data-transition="convex" >
+                  <h2 class="hljs" style="font-size:2.5rem; overflow:hidden; color: #fff;">~ Senior Frontend Engineer <br>at UPMC IT Dept ~</h2>
+                  <p>Division “research and development”, uPortal admin.
+                     <br>
+                     Has been working on uPortal since 2005
+                  </p>
+               </section>
+
+               <section data-transition="convex" >
+                  <h2 class="hljs" style="font-size:2.5rem; overflow:hidden; color: #fff;">~ uPortal Steering Committee<br>Community Rep. ~</h2>
+                  <p>Spring 2016 - 2 years
+                     <br>
+                     For the French Consortium ESUP
+                  </p>
+               </section>
+
+               <section data-transition="convex" >
+                  <h2 class="hljs" style="font-size:2rem; overflow:hidden; color: #fff;">~ Mobile &amp; Accessibility Expert ~</h2>
+                  <h3 class="hljs" style="font-size:1.7rem; overflow:hidden; color: #fff;">Formely a Professional Comedian</h3>
+                  <pre><code class="hljs"  style="font-size:1.0rem !important;" data-trim contenteditable>
+{
+  "name": "Christian Cousquer",
+  "priorities": [
+    "family", "work", "friends", "cats 🐈", "DOM api", "ES6", "CSS", "uPortal", "WebVR"
+  ],
+  "location": "Paris, France",
+  "work": "UPMC",
+  "role": "Software Engineer",
+  "hobbies": [
+    "theater", "books", "DIY", "movies", "😄", "play with my son", "Maths", "History"
+  ]
+}
+                </code></pre>
+               </section>
+
+               <section>
+                  <h2 class="hljs" style="font-size:2rem; overflow:hidden; color: #fff;">~ Many Thoughts to my UPMC Fellows &amp; Teachers ~</h2>
+                  <p style="font-size:1.7rem;" >&ldquo;When I'm working, I always think and thank: <br>Y. Epelboin, T. Koscielniak, A. Pruvost, P. Alves, B. Somphone, K. Lefranc, Y. Roualdes, L. Auxepaules,<br>my family <br>and all the teachers, who have teached me things&rdquo;</p>
+               </section>
+
+            </section>
+            
+            <section>
+
+               <section data-transition="convex" >
+                  <div class="wrapper_cube">
+                     <div class="article_cube">
+                        <p class="hljs" style="font-size: 2.3rem; overflow: hidden; color: white; opacity: 1; width: 50%; position: absolute; top: 20%;">
+                           <span class="emoji" style="background-color:#fff">💻</span><br> About my computer
+                           <br>
+                           "Francis"
+                           <br>
+                           <span class="emoji" style="background-color:#fff">💻</span>
+                        </p>
+                     </div>
+                     <div>
+                        <div class="container-cube">
+                           <div id="cube">
+                              <figure class="front"><img src="assets/artworks/lino.jpg" style="witdh:100%; height: 100%"alt="" /></figure>
+                              <figure class="back"><img src="assets/artworks/lino.jpg" style="witdh:100%; height: 100%"alt="" /></figure>
+                              <figure class="right"><img src="assets/artworks/francis_2a.jpg" style="witdh:100%; height: 100%"alt="" /></figure>
+                              <figure class="left"><img src="assets/artworks/francis_2a.jpg" style="witdh:100%; height: 100%"alt="" /></figure>
+                              <figure class="top"></figure>
+                              <figure class="bottom"></figure>
+                           </div>
+                        </div>
+                     </div>
+
+                  </div>
+               </section>
+
+               <section data-background-video="assets/videos/chap_2.mp4" data-background-color="#000000">
+                  <div style="background-color: rgba(0, 0, 0, 0.1); color: #fff; bottom: 0; font-size:1.2rem">
+                     <p style="background-color: rgba(0, 0, 0, 1); color: #fff;position:absolute; bottom:-1500%; width: 100%; font-size:1.5rem; z-index:5;">Francis Lagneau <span class="emoji" style="background-color:#fff">💻</span>, </p>
+                     <p class="fragment" style="background-color: rgba(0, 0, 0, 1); color: #fff;position:absolute; bottom:-1500%; width: 100%; font-size:1.5rem; z-index:10;">a. k. a. Little Marquis, </p>
+                     <p class="fragment" style="background-color: rgba(0, 0, 0, 1); color: #fff;position:absolute; bottom:-1500%; width: 100%; font-size:1.5rem; z-index:15;">a. k. a. Cherub,  </p>
+                     <p class="fragment" style="background-color: rgba(0, 0, 0, 1); color: #fff;position:absolute; bottom:-1500%; width: 100%; font-size:1.5rem; z-index:15;">a. k. a. Good Manners.</p>
+                     <p class="fragment" style="background-color: rgba(0, 0, 0, 1); color: #fff;position:absolute; bottom:-1500%; width: 100%; font-size:1.5rem; z-index:20;">In some circles, he’s also known under the alias Requiem,</p>
+                     <p class="fragment" style="background-color: rgba(0, 0, 0, 1); color: #fff;position:absolute; bottom:-1500%; width: 100%; font-size:1.5rem; z-index:25;">a. k. a. Bazooka,</p>
+                     <p class="fragment" style="background-color: rgba(0, 0, 0, 1); color: #fff;position:absolute; bottom:-1500%; width: 100%; font-size:1.5rem; z-index:27;">a. k. a. Falballas,</p>
+                     <p class="fragment" style="background-color: rgba(0, 0, 0, 1); color: #fff;position:absolute; bottom:-1500%; width: 100%; font-size:1.5rem; z-index:30;">a. k. a. Biff,</p>
+                     <p class="fragment" style="background-color: rgba(0, 0, 0, 1); color: #fff;position:absolute; bottom:-1500%; width: 100%; font-size:1.5rem; z-index:35;">also known as beautyful Helluva Punch.</p>
+                     <p class="fragment" style="background-color: rgba(0, 0, 0, 1); color: #fff;position:absolute; bottom:-1500%; width: 100%; font-size:1.5rem; z-index:40;">as clout. </p>
+                     <p class="fragment" style="background-color: rgba(0, 0, 0, 1); color: #fff;position:absolute; bottom:-1500%; width: 100%; font-size:1.5rem; z-index:50;">It's curious how mean can people be... </p>
+                     <p class="fragment" style="background-color: rgba(0, 0, 0, 1); color: #fff;position:absolute; bottom:-1500%; width: 100%; font-size:1.5rem; z-index:55;">very young when he earned the nickname... </p>
+                     <p class="fragment" style="background-color: rgba(0, 0, 0, 1); color: #fff;position:absolute; bottom:-1500%; width: 100%; font-size:1.5rem; z-index:65;">Trinitrotoluene.<span class="emoji">💥</span></p>
+                     <p class="fragment" style="background-color: rgba(0, 0, 0, 1); color: #fff;position:absolute; bottom:-1500%; width: 100%; font-size:1.5rem; z-index:75;">&nbsp;</p>
+                  </div>
+               </section>
+
+            </section>
+
+            <section data-transition="convex" >
+               <section>
+                  <h2 class="hljs" style="font-size:2.5rem; overflow:hidden; color: #fff;">~ This presentation will be the continuation of the two last year's presentations ~</h2>
+                  <p>&ldquo;Feedback on the deployment of uPortal4.2+ responsive at UPMC&rdquo;</p>
+                  <a href="https://www.slideshare.net/prairycat/deploying-responsive-uportal-42-at-upmc-sorbonne-universits" target="_blank">https://www.slideshare.net/prairycat/deploying-responsive-uportal-42-at-upmc-sorbonne-universits</a>
+                  <p>&ldquo;On the road of multi-tenancy portal at UPMC&rdquo;</p>
+                  <a href="https://fr.slideshare.net/prairycat/on-the-road-of-multi-tenancy-portal-apereo-2016" target="_blank">https://fr.slideshare.net/prairycat/on-the-road-of-multi-tenancy-portal-apereo-2016</a>
+               </section>
+
+
+               <section data-transition="convex">
+                  <h2 class="hljs" style="font-size:2.5rem; overflow:hidden; color: #fff;">~ UPMC - Sorbonne University<br />Context ~</h2>
+
+                  <a href="#/3/2">
+                     <img width="600" height="300" data-src="assets/artworks/TZnight.jpg" alt="Collective Intelligence">
+                  </a>
+               </section>
+
+               <section>
+                  <h2 class="hljs" style="font-size:2.5rem; overflow:hidden; color: #fff;">~ Merger of Paris-Sorbonne &amp; Pierre et Marie Curie universities ~</h2>
+                  <p style="font-size:1.8rem;">In 2018, the merger of Paris-Sorbonne and Pierre et Marie Curie universities will transform Sorbonne University into a fully-fledged university with three autonomous faculties: Humanities and Social Sciences, Sciences and Medicine.</p>
+               </section>
+
+               <section data-transition="convex">
+                  <h2 class="hljs" style="font-size:2.5rem; overflow:hidden; color: #fff;">~ UPMC Portal Steering Committee ~</h2>
+                  <p style="font-size:1.8rem;">After 4 years of absence, a new one isn't yet constituted, because of the complexity of the merger of the two Universities</p>
+                  <cite class="fragment" style="font-size:1.8rem;">&ldquo;Try to do the best, M. Cousquer, keep on, If you think an improvement need to be done, do it and share it&rdquo;</cite>
+                  <p style="font-size:1.8rem;">Conception and Design under null constraint, with low priority</p>
+
+               </section>
+
+               <section data-transition="convex">
+                  <h2 class="hljs" style="font-size:2.5rem; overflow:hidden; color: #fff;">~ Something you need to know about the French Context ~</h2>
+                  <p class="fragment" style="font-size:1.8rem;">When a Public French university can spend $1 an American University can spend $10 - $60.<br />When a French university can assign 1 or 2 people on a project, some American universities have the possibility to assign 4 to 6 people on the same project.</p>
+               </section>
+            </section>
+
+            <section data-transition="convex" >
+
+               <section data-transition="convex">
+                  <h2 class="hljs" style="font-size:2.5rem; overflow:hidden; color: #fff;">~ A Portal seen under a Collective Intelligence Approach ~</h2>
+                  <a href="#/4/1">
+                     <img width="600" height="350" data-src="assets/artworks/me_we.jpg" alt="Collective Intelligence">
+                  </a>
+               </section>
+
+               <section>
+                  <h2 class="hljs" style="font-size:2.5rem; overflow:hidden; color: #fff;">~ Collective Intelligence? - Concepts ~</h2>
+                  <ul>
+                     <li>Perception of the whole / <i lang="fr"> Holopisme</i> [fr_FR]</li>
+                     <li>A shared Identity (feeling of a Group MemberShip)</li>
+                     <li>A Social Contract</li>
+                     <li>Common objectives</li>
+                     <li>Economics of the Gift ("I'don't keep things just for me" - idea of Sharing)</li>
+                     <li>Link objects in circulation (something in movement inside and between)</li>
+                     <li>Learning Organization</li>
+                  </ul>
+               </section>
+
+               <section data-transition="convex">
+                  <h2 class="hljs" style="font-size:2.5rem; overflow:hidden; color: #fff;">~ Perception of the whole  ~</h2>
+                  <p>If uPortal was an architectural concept…</p>
+               </section>
+
+               <section data-transition="convex" data-background="assets/artworks/globecity2.jpg">
+                  <h2 class="hljs" style="font-size:2.5rem; overflow:hidden; color: #fff;; margin-top:60%; position:relative;">uPortal 4.0 Universality ~</h2>
+               </section>
+
+               <section data-transition="convex" data-background="assets/artworks/architecture-sub-biosphere-2.jpg">
+                  <h2 class="hljs" style="font-size:2.5rem; overflow:hidden; color: #fff; margin-top:30%; position:relative;">uPortal 4.3+ Respondr ~</h2>
+                  <p class="hljs" style="font-size:2rem; overflow:hidden; color: #fff;">Multi-tenancy, everything is portlet/service</p>
+               </section>
+
+               <section data-transition="convex">
+                  <h2 class="hljs" style="font-size:2.5rem; overflow:hidden; color: #fff;">~ A shared Identity  ~</h2>
+                  <p style="font-size:1.8rem;">I'm always amazed by the fact that lot's of US Portals have a Mascott</p>
+                  <p style="font-size:1.8rem;">UPMC is one of the only french universities which has a Mascott for its portal. The UPMC's Mascott: "The curious"</p>
+                  <img width="220" height="75" data-src="assets/artworks/monUPMCBlack.png" alt="The curious">
+               </section>
+
+               <section>
+                  <h2 class="hljs" style="font-size:2.5rem; overflow:hidden; color: #fff;">~ Social Contract ~</h2>
+                  <h3 style="font-size:2.3rem;">The French State publish every two years the SDET 6.0</h3>
+                  <p style="font-size:1.8rem;">&ldquo;Schéma Directeur des Espaces numériques de Travail&rdquo;: &ldquo;Master Plan for Digital Work Spaces&rdquo;</p>
+                  <a href="http://cache.media.eduscol.education.fr/file/sdet/22/3/SDET_document-principal_6.0_660223.pdf" target="_blank" title="SDET 6.0">
+                     <img width="400" height="150" data-src="assets/artworks/logo_dgme.png" alt="Material Design">
+                  </a>
+               </section>
+
+               <section>
+                  <h2 class="hljs" style="font-size:2.5rem; overflow:hidden; color: #fff;">~ Master Plan for Digital Work Spaces ~</h2>
+                  <p style="font-size:1.8rem;">One Url for all services</p>
+                  <a href="#/4/8">
+                     <img width="400" height="400" data-src="assets/artworks/visuel_ENT.png" alt="ENT">
+                  </a>
+               </section>
+
+               <section data-transition="convex" data-background="assets/artworks/ENTeduscol.jpg">
+                  <h2 class="hljs" style="font-size:2rem; overflow:hidden; color: #fff;; margin-top:13%; position:relative;">~ Digital Work Space ~</h2>
+               </section>
+
+               <section>
+                  <h2 class="hljs" style="font-size:2.5rem; overflow:hidden; color: #fff;">~ A French Digital Work Space Portal: "ENT" ~</h2>
+                  <ul>
+                     <li style="font-size:1.8rem;" class="fragment">Needs to work on Mobile and Desktop</li>
+                     <li style="font-size:1.8rem;" class="fragment">Must comply with State Security recommendations</li>
+                     <li style="font-size:1.8rem;" class="fragment">Can be customized by the user</li>
+                     <li style="font-size:1.8rem;" class="fragment">Needs to meet WCAG 2.0 AA</li>
+                  </ul>
+               </section>
+
+
+            </section>
+
+            <section data-transition="convex" >
+               <section data-background-video="assets/videos/chap_3.mp4" data-background-color="#000000">
+                  <div style="background-color: rgba(0, 0, 0, 0.1); color: #fff; bottom: 0; font-size:1.2rem">
+                     <p style="background-color: rgba(0, 0, 0, 1); color: #fff;position:absolute; bottom:-1500%; width: 100%; font-size:1.5rem; z-index:5;">As a first impression, I would say...</p>
+                     <p class="fragment" style="background-color: rgba(0, 0, 0, 1); color: #fff;position:absolute; bottom:-1500%; width: 100%; font-size:1.5rem; z-index:10;">it looks pretty weird.</p>
+                     <p class="fragment" style="background-color: rgba(0, 0, 0, 1); color: #fff;position:absolute; bottom:-1500%; width: 100%; font-size:1.5rem; z-index:15;">The  Mexican made it when he was in his prime.</p>
+                     <p class="fragment" style="background-color: rgba(0, 0, 0, 1); color: #fff;position:absolute; bottom:-1500%; width: 100%; font-size:1.5rem; z-index:15;">But we had to stop production. People went blind...</p>
+                     <p class="fragment" style="background-color: rgba(0, 0, 0, 1); color: #fff;position:absolute; bottom:-1500%; width: 100%; font-size:1.5rem; z-index:20;">It was bad for business.</p>
+                     <p class="fragment" style="background-color: rgba(0, 0, 0, 1); color: #fff;position:absolute; bottom:-1500%; width: 100%; font-size:1.5rem; z-index:65;">&nbsp;</p>
+                     <p class="fragment" style="background-color: rgba(0, 0, 0, 1); font-size:3rem; position:absolute; left:40%; bottom:-800%; overflow:hidden; color: #fff; z-index:70;">&nbsp;&nbsp;Accessibility&nbsp;&nbsp;</p>
+                  </div>
+               </section>
+
+               <section>
+                  <h2 class="hljs" style="font-size:2.5rem; overflow:hidden; color: #fff;">~ W3C Web Content Accessibility Guideline 2.0 ~</h2>
+                  <p style="font-size:1.8rem;">Digital accessibility is based on four main principles:</p>
+                  <ul>
+                     <li style="font-size:1.8rem;">a perceptible site;</li>
+                     <li style="font-size:1.8rem;">a usable site;</li>
+                     <li style="font-size:1.8rem;">an understandable site;</li>
+                     <li style="font-size:1.8rem;">A site that is compatible with all assistive technologies.</li>
+                  </ul>
+               </section>
+               
+               <section>
+                  <h2 class="hljs" style="font-size:2.5rem; overflow:hidden; color: #fff;">Référentiel Général d'Accessibilité des Administrations 3 - 2016</h2>
+                  <p style="font-size:1.8rem;">&ldquo;RGAA 3 - 2016&rdquo;: French National Guideline Compliance to the WCAG 2.0 + Wai Aria</p>
+                  <p style="font-size:1.8rem;">ADA is essential for people with disabilities and also benefits seniors whose abilities change with age. Digital accessibility is part of a process of equality and is a fundamental social issue in order to guarantee all the access to online information without discrimination.</p>
+                  <a style="font-size:1.8rem;" href="http://references.modernisation.gouv.fr/rgaa/" target="_blank">RGAA 3 - 2016</a><br />
+                  <a style="font-size:1.8rem;" href="http://disic.github.io/rgaa_methodologie/en/" target="_blank">RGAA 3 - 2016 (in english)</a>
+               </section>
+
+               <section>
+                  <h2 class="hljs" style="font-size:2.5rem; overflow:hidden; color: #fff;">~ uPortal Better accessibility ~</h2>
+                  <ul>
+                     <li style="font-size:1.8rem;">Availability: uPortal 4.3 (rel-4-3-patches) &amp; uPortal 5.0.0</li>
+                     <li style="font-size:1.8rem;">Federal Guideline Compliance [US ; UK ; FR ; CA ; ...]</li>
+                     <li style="font-size:1.8rem;">This should not be viewed only as an attempt to be in compliance with the law</li>
+                     <li style="font-size:1.8rem;">&ldquo;Accessibility is usability and a better experience for all.&rdquo;</li>
+                     <li style="font-size:1.8rem;">Many many Thanks to Christian Murphy, Drew, Benito, and the great team at Oakland University (Aaron(s), Brandon, Daniela, Corey &amp; C°)</li>
+                  </ul>
+               </section>
+
+               <section>
+                  <h3 class="hljs" style="font-size:2.3rem; overflow:hidden; color: #fff;">~ Screen readers are a tool a lot of different people like to use</h3>
+                  <p style="font-size:1.8rem;">Screen readers are not just for the blind</p>
+                  <p style="font-size:1.8rem;">Some operate screen readers to assist their understanding of an interface. Others may be visually dyslexic or have low literacy. There are even those who have little physical or cognitive trouble understanding an interface who simply prefer to have it read out to them sometimes.</p>
+                  <p style="font-size:1.8rem;">In France (pop: 67,5 Millions), the INSSE considers that there is 12 Millions of people with disabilities</p>
+               </section>
+
+               <section>
+                  <h2 class="hljs" style="font-size:2.0rem; overflow:hidden; color: #fff;">~ Keyboard Requirements and Specific Mobile Requirements ~</h2>
+                  <p style="font-size:1.8rem;">There is some correlation between Mobile Site / App issues and the WCAG 2.0 Guidelines...</p>
+                  <p style="font-size:1.8rem;"><strong>Mobiles Sites are not specifically covered by WCAG 2.0</strong></p>
+                  <p style="font-size:1.8rem;">For example, although WCAG 2.0 requires Sites <strong>to be accessible to keyboard user</strong>, it does not specify that it should also be accessible to the mouse or touchscreen user...</p>
+                  <p style="font-size:1.8rem;"><em>Do not try to mimick Native App Interactions (Complex gesture-based interactions, etc.) Complex gesture-based interactions involve several successive or synchronized movements. For example, a swipe followed by several taps. These interactions may present insurmountable difficulties for some users.</em></p>
+               </section>
+
+               <section>
+                  <h2 class="hljs" style="font-size:2.3rem; overflow:hidden; color: #fff;">~ Email Preview Refactor ~</h2>
+                  <p style="font-size:1.8rem;"><a href="https://github.com/Jasig/email-preview/pull/70" target="_blank">EMAILPLT-190</a>: lot's of <abbr title="Accessibility">a11y</abbr> Improvements in <abbr title="Responsive Web Design">RWD</abbr></p>
+                  <p style="font-size:1.8rem;">available in project master branch.</p>
+                  <a href="#/5/7" title="EmailPreview in uPortal 5">
+                     <img width="400" height="300" data-src="assets/artworks/a11y_emailpreview.png" alt="EmailPreview in uPortal 5" />
+                  </a>
+               </section>
+
+               <section>
+                  <h2 class="hljs" style="font-size:2.5rem; overflow:hidden; color: #fff;">~ Navigation flow, Interactive Story  ~</h2>
+                  <p style="font-size:1.8rem;">RWD: Always Think where the keyboard focus
+                     goes after each interactions - specially in Responsive Web Design, when something moves, appears or disapears on screen.</p>
+                  <a href="#/5/8">
+                     <img width="600" height="350" data-src="assets/artworks/emailpreview_focus_flow.png" alt="back end dev" />
+                  </a>
+               </section>
+
+               <section data-transition="convex" >
+                  <h2 class="hljs" style="font-size:2rem; overflow:hidden; color: #fff;">~ Debugging focus Tips ~</h2>
+                  <p style="font-size:1.8rem;">This logs the currently focused element, useful because opening the Devtools blurs the activeElement</p>
+                  <pre><code class="hljs"  style="font-size:1.4rem !important;" data-trim contenteditable>
+                   $('body').on('focusin', function() {
+                     console.log(document.activeElement);
+                   });
+               </code></pre>
+               </section>
+
+               <section>
+                  <h2 class="hljs" style="font-size:2.5rem; overflow:hidden; color: #fff;">~ tabindex problem  ~</h2>
+                  <ul>
+                     <li>Elements with tabindex="0" are part of the natural tab sequence</li>
+                     <li>Elements with tabindex="-1" are not, but are focusable with scripting</li>
+                     <li>Elements with tabindex=">0" are never a good idea</li>
+                  </ul>
+               </section>
+
+               <section>
+                  <h2 class="hljs" style="font-size:2.5rem; overflow:hidden; color: #fff;">~ aria-flowto attribute  ~</h2>
+                  <ul>
+                     <li style="font-size:1.8rem;">Creates a navigation flow from one element to another</li>
+                     <li style="font-size:1.8rem;">Takes the id value of the element to be navigated to</li>
+                     <li style="font-size:1.8rem;">Need to manage also the focus in JavaScript with <i>element.focus()</i> and warn user before in the label: &ldquo;Go up to Selected Message ToolBar&rdquo;</li>
+                  </ul>
+                  <pre><code class="hljs"  style="font-size:1.4rem;" data-trim contenteditable>
+                   <div style="display: flex;">
+                     <button id="b1" aria-flowto="b3" style="order: 3;">1</button>
+                     <button id="b2" aria-flowto="b1" style="order: 2;">2</button>
+                     <button id="b3" aria-flowto="b2" style="order: 1;">3</button>
+                   </div>
+               </code></pre>
+               </section>
+
+               <section>
+                  <div>
+
+                     <img width="600" height="275" data-src="assets/artworks/mainflow.png" alt="Mozilla's Gecko rendering engine main flow" style="border: 1px solid grey;">
+
+                  </div>
+                  <p  style="font-size:1.6rem;">Mozilla's Gecko rendering engine main flow<br /><a href="https://www.html5rocks.com/en/tutorials/internals/howbrowserswork/" target="_blank">HTML5 Rocks: How browsers work</a> by Tali Garsiel and Paul Irish
+                     <br />
+                     <a href="https://hacks.mozilla.org/2017/05/quantum-up-close-what-is-a-browser-engine/" target="_blank">What is a browser engine?</a> by Potch
+                     <br />
+                     <a href="https://fronteers.nl/congres/2016-spring/sessions/accessibility-and-performance-by-marcy-sutton" target="_blank">Accessibility and Performance</a> by Marcy Sutton
+                  </p>
+               </section>
+
+               <section>
+                  <h2 class="hljs" style="font-size:2.5rem; overflow:hidden; color: #fff;">~ Manipulating the DOM  ~</h2>
+                  <ul>
+                     <li style="font-size:1.8rem;" class="fragment">Browser parses the HTML and builds the DOM</li>
+                     <li style="font-size:1.8rem;" class="fragment">Browser uses the DOM to build the accessibility tree</li>
+                     <li style="font-size:1.8rem;" class="fragment">Browser updates the DOM in response to user interaction or scripted events</li>
+                     <li style="font-size:1.8rem;" class="fragment">Browser responds to changes in the DOM and updates the accessibility tree</li>
+                     <li style="font-size:1.8rem;" class="fragment">Assistive technologies listen for changes in the accessibility tree and respond accordingly</li>
+                  </ul>
+               </section>
+
+               <section>
+                  <h2 class="hljs" style="font-size:2.3rem; overflow:hidden; color: #fff;">~ DOM tree ~</h2>
+                  <div>
+                     <img width="600" height="450" data-src="assets/artworks/checkbox-dom.png" alt="DOM tree" style="border: 1px solid grey;">
+                  </div>
+               </section>
+
+               <section>
+                  <h2 class="hljs" style="font-size:2.3rem; overflow:hidden; color: #fff;">~ Accessibility tree ~ </h2>
+                  <div>
+                     <img width="600" height="450" data-src="assets/artworks/checkbox-a11y-tree.png" alt="Accessibility tree" style="border: 1px solid grey;">
+                  </div>
+               </section>
+
+               <section>
+                  <h2 class="hljs" style="font-size:2.3rem; overflow:hidden; color: #fff;">~ If you use the WAI-ARIA role “application”, please do so wisely! ~</h2>
+                  <p style="font-size:1.8rem;">two-part user interaction model: "virtual cursor or browse mode" &amp; "Forms mode or focus mode"</p>
+                  <p style="font-size:1.8rem;">If you make up a user interface solely of elements that are part of standard HTML, you will most probably not want to use “application” because browsers and assistive technologies provide a standard interaction model for these already and don’t need special support from you in that</p>
+                  <a style="font-size:1.8rem;" href="https://www.marcozehe.de/2012/02/06/if-you-use-the-wai-aria-role-application-please-do-so-wisely/" target="_blank">Great reference by Marco Zehe (Mozilla accessibility)</a>
+               </section>
+
+               <section>
+                  <blockquote style="font-size:1.4rem;">
+                     &ldquo;..the mobile world is nothing universal, quite the contrary. If the number of platforms is measured, their intrinsic characteristics (eg resolution) complicate the technological landscape enormously. If the Responsive Web Design (RWD) allows reasonable adaptations, for accessibility it's another thing. The world of web-based mobile interfaces is unstable and highly scalable, while support for "web standards" is just beginning to stabilize and the "touch" is not yet standardized by the W3C. To these difficulties is added the important pace of the updates, in particular of the browser part, on which one regularly observes regressions. There's also a big difference compared to desktop platforms where there are operating system-independent technologies. On mobile platforms, assistive technologies are a component built into the operating system itself... These assistives technologies are particularly optimized for the host system. This creates a new situation where a web application that is functional and accessible on a desktop computer can cause difficulties when accessed via a mobile interface, even if it comes from the same publisher.
+                     &rdquo;
+                  </blockquote>
+               </section>
+
+            </section>
+
+            <section data-transition="convex" >
+               <section data-background-video="assets/videos/chap_4.mp4" data-background-color="#000000">
+                  <div style="background-color: rgba(0, 0, 0, 0.1); color: #fff; bottom: 0; font-size:1.2rem">
+                     <p style="background-color: rgba(0, 0, 0, 1); color: #fff;position:absolute; bottom:-1500%; width: 100%; font-size:1.5rem; z-index:5;">On foot, they'd have had a chance.</p>
+                     <p class="fragment" style="background-color: rgba(0, 0, 0, 1); color: #fff;position:absolute; bottom:-1500%; width: 100%; font-size:1.5rem; z-index:10;">But no one likes mobile ground combat anymore.</p>
+                     <p class="fragment" style="background-color: rgba(0, 0, 0, 1); color: #fff;position:absolute; bottom:-1500%; width: 100%; font-size:1.5rem; z-index:15;">The infantry spirit is dead.</p>
+                     <p class="fragment" style="background-color: rgba(0, 0, 0, 1); color: #fff;position:absolute; bottom:-1500%; width: 100%; font-size:1.5rem; z-index:15;">It's a shame.</p>
+                     <p class="fragment" style="background-color: rgba(0, 0, 0, 1); color: #fff;position:absolute; bottom:-1500%; width: 100%; font-size:1.5rem; z-index:65;">&nbsp;</p>
+                     <p class="fragment" style="background-color: rgba(0, 0, 0, 1); font-size:3rem; position:absolute; left:40%; bottom:-800%; overflow:hidden; color: #fff; z-index:70;">&nbsp;&nbsp;Mobility&nbsp;&nbsp;</p>
+                  </div>
+               </section>
+
+               <section>
+                  <a href="#/6/2" title="">
+                     <img width="600" height="600" data-src="assets/artworks/enfant-mobile-equilibre.png" alt="mobile scultpure of frontend">
+                  </a>
+               </section>
+
+               <section>
+                  <h2 class="hljs" style="font-size:2.5rem; overflow:hidden; color: #fff;">~ Material Design ~</h2>
+                  <a href="#/6/3">
+                     <img width="400" height="400" data-src="assets/artworks/MD_depth.jpg" alt="Material Design">
+                  </a>
+               </section>
+
+               <section>
+                  <h2 class="hljs" style="font-size:2.5rem; overflow:hidden; color: #fff;">~ x, y, z axis ~</h2>
+                  <ul>
+                     <li style="font-size:1.8rem;">Think in terms of three-dimensional environment containing light, material, and cast shadows.</li>
+                     <li style="font-size:1.8rem;">All objects have x, y, and z dimensions.</li>
+                     <li style="font-size:1.8rem;">All objects have a single z-axis position.</li>
+                     <li style="font-size:1.8rem;">Key lights create directional shadows, and ambient light creates soft shadows.</li>
+                     <a href="#/6/4"  style="display:block; left:15%;position:relative;">
+                        <img width="400" height="250" data-src="assets/artworks/Google-Material-Design-Depth.png" alt="back end dev" /><img width="250" height="250" data-src="assets/artworks/what_is_material_environment.png" alt="back end dev" />
+                     </a>
+
+                  </ul>
+               </section>
+
+               <section>
+                  <h2 class="hljs" style="font-size:2.5rem; overflow:hidden; color: #fff;">~ Material Design in uPortal 4.3+ WIP ~</h2>
+                  <cite style="font-size:1.6rem;" >&ldquo;I don't want to be alone in the community to adopt Material, so I was waiting for Corey's excellent PRs on Feedback FBP-37 &rdquo;</cite>
+                  <div>
+                     <p style="font-size:1.8rem;">Thanks Oakland University</p>
+                     <a href="#/6/5" style="display: block;">
+                        <img width="550" height="400" data-src="assets/artworks/feedback.gif" alt="Demo">
+                     </a>
+                  </div>
+               </section>
+               
+               <section>
+                  <h2 class="hljs" style="font-size:2.5rem; overflow:hidden; color: #fff;">~ But I've got a problem ~</h2>
+                  <p>it seems that one Faculty wants to be in Bootstrap, the two others wants to be in Material Design...</p>
+                  <p style="font-size:1.6rem;" >" How can portlets be in the same time in Bootstrap and in Material Design?"</p>
+               </section>
+               
+               <section>
+                  <h2 class="hljs" style="font-size:2.5rem; overflow:hidden; color: #fff;">~ Make look jQuery / Bootstrap look like Material Design in uPortal 4.3+ ~</h2>
+                  <p style="font-size:1.6rem;" >Only CSS patches on top of Bootstrap / jQuery within wolverine.less.</p>
+                  <p style="font-size:1.6rem;" >in a few days, every buttons, tabs, list, table, forms can look like MD without modifying the Portlets markup or adding a new dependancy</p>
+                  <div>
+                     <p style="font-size:1.8rem;">Demo</p>
+                     <a href="#/6/7" style="display: block;">
+                        <img width="200" height="200" data-src="assets/artworks/worm_hole.jpg" alt="Demo">
+                     </a>
+                  </div>
+               </section>
+
+               <section>
+                  <h2 class="hljs" style="font-size:2.5rem; overflow:hidden; color: #fff;">~ A last word on rendering ~</h2>
+                  <ul>
+                     <li style="font-size:1.8rem;">Simply move your CSS’ link elements to as close to the top of the HTML document as you can. Seriously, it can make a difference.</li>
+                     <li style="font-size:1.8rem;">Don’t put scripts at the bottom any more: make use of <a href="http://caniuse.com/#search=async" target="_blank">async</a> and <a href="http://caniuse.com/#search=defer" target="_blank">defer</a> attributes</li>
+                     <li style="font-size:1.8rem;">Make use of <a href="https://www.w3.org/TR/resource-hints/" target="_blank">resource hints</a> to tell the browser to <a href="http://caniuse.com/#search=Resource%20Hints" target="_blank">prioritize</a> things out of regular order (or for subsequent navigation).</li>
+                  </ul>
+               </section>
+
+               <section>
+                  <h2 class="hljs" style="font-size:2.5rem; overflow:hidden; color: #fff;">~ A word on CSS, LESS, SASS, PostCSS ~</h2>
+                  <ul>
+                     <li style="font-size:1.8rem;">Last Year, I've told you about <code style="display:inline-block">while()</code> in LESS, SASS, etc.</li>
+                     <li style="font-size:1.8rem;">This Year, do you know that CSS has CSS Custom Properties with <code style="display:inline-block">var()</code> and <code>"--xx:"</code> properties, and can <code style="display:inline-block">calc()</code> also?</li>
+                     <li style="font-size:1.8rem;">CSS should be seen not only for doing shiny/ugly things... It's a language for Interactivity too and <i>There is rarely regression in CSS.</i></li>
+                     <a href="https://blog.toggl.com/2016/12/developers-explained-with-lightbulbs/"  style="display:block; left:15%;position:relative;" target="_blank">
+                        <img width="400" height="200" data-src="assets/artworks/virkus.png" alt="back end dev">
+                     </a>
+                  </ul>
+               </section>
+
+               <section>
+                  <h2 class="hljs" style="font-size:2.5rem; overflow:hidden; color: #fff;">~ A word on <i>Non-</i>JavaScript ~</h2>
+                  <ul>
+                     <blockquote style="font-size:1.8rem;">
+                        &ldquo;..Most JS is written to run in and interact with environments like browsers. A good chunk of the stuff that you write in your code is, strictly speaking, not directly controlled by JavaScript. That probably sounds a little strange. The most common non-JavaScript JavaScript you'll encounter is the DOM API... <br />Another example is the various HTML5 capabilities, such as the File API (I/O), Web Storage, Canvas or WebGL APIs, Typed Arrays or the Shadow DOM (and much more…).&rdquo;
+                     </blockquote>
+                     <a href="https://github.com/eliranmal/You-Dont-Know-JS/blob/master/up%20&%20going/ch2.md#non-javascript"  style="display:block; font-size:1.8rem;">
+                        You Don't Know JS: Up &amp; Going, chap 2 #non-javascript
+                     </a>
+
+                  </ul>
+               </section>
+
+            </section>
+            
+            
+            <section>
+
+               <section data-background-video="assets/videos/chap_6.mp4" data-background-color="#000000">
+                  <div style="background-color: rgba(0, 0, 0, 0.1); color: #fff; bottom: 0; font-size:1.2rem">
+                     <p style="background-color: rgba(0, 0, 0, 1); color: #fff;position:absolute; bottom:-1500%; width: 100%; font-size:1.5rem; z-index:5;">My good man. Take up  Mr Naudin's bags, please., </p>
+                     <p class="fragment" style="background-color: rgba(0, 0, 0, 1); color: #fff;position:absolute; bottom:-1500%; width: 100%; font-size:1.5rem; z-index:10;">YES, SIRE! <i style="color: yellow;">[in English]</i></p>
+                     <p class="fragment" style="background-color: rgba(0, 0, 0, 1); color: #fff;position:absolute; bottom:-1500%; width: 100%; font-size:1.5rem; z-index:75;">&nbsp;</p>
+                     <p class="fragment" style="background-color: rgba(0, 0, 0, 1); font-size:3rem; position:absolute; left:20%; bottom:-800%; overflow:hidden; color: #fff; z-index:70;">&nbsp;&nbsp;Internationalization,&nbsp;i18n&nbsp;&nbsp;</p>
+                  </div>
+               </section>
+
+               <section>
+                  <h2 class="hljs" style="font-size:2.5rem; overflow:hidden; color: #fff;">~ Some i18n bug: accentuated characters ~</h2>
+                  <a href="#/7/2">
+                     <img width="310" height="400" data-src="assets/artworks/app_launcher_bug_postgres.png" alt="Bug of accentuated character on postgress">
+                  </a>
+               </section>
+
+               <section>
+                  <h2 class="hljs" style="font-size:2.5rem; overflow:hidden; color: #fff;">~ i18n of CMS Portlet ~</h2>
+                  <cite style="font-size:1.6rem;" >&ldquo;How internationalize simple Static Content in Advanced CMS Portlet.&rdquo;</cite>
+                  <div>
+                     <p style="font-size:1.8rem;">Demo</p>
+                     <a href="#/7/3" style="display: block;">
+                        <img width="200" height="200" data-src="assets/artworks/worm_hole.jpg" alt="Demo">
+                     </a>
+                  </div>
+               </section>
+
+               <section data-transition="convex" data-background="assets/artworks/obvil_fr.png">
+
+               </section>
+
+               <section data-transition="convex" data-background="assets/artworks/obvil_en.png">
+
+               </section>
+
+               <section data-transition="convex" data-background="assets/artworks/obvil_es.png">
+
+               </section>
+
+
+               <section>
+                  <h2 class="hljs" style="font-size:2.5rem; overflow:hidden; color: #fff;">~ Work in progress WIP ~</h2>
+                  <h3 style="font-size:2.1rem;">Internationalization of Advanced CMS Portlet</h3>
+                  <ul>
+                     <li style="font-size:1.8rem;">Manage i18n in Html5, JavaScript, in VirtualDOM with 2KB of JS in a single portlet-definition, in Material Design, with Rich UI</li>
+                     <li style="font-size:1.8rem;">Separation of data from the view, depending on the lang attribute of the html element</li>
+                     <li style="font-size:1.8rem;">Manage a11y, keyboard navigation</li>
+                     <li style="font-size:1.8rem;">Templates of portlet-definition. A portlet can be done in 1 hour</li>
+                     <li style="font-size:1.8rem;">Don't assume language dictates location and location dictates the language, Let the user choose: when the user change his local language, the portlet is displayed in this language according to the user's customization...</li>
+                     <li style="font-size:1.8rem;">Everythings (CSS, HTML, JS) is gathered in a single file -> no dispersion and everything is scoped. Very easy to configure, debug and fix</li>
+                  </ul>
+               </section>
+
+               <section data-background="assets/artworks/ryan.gif">
+                  <h2 style="background-color:#e5f1fc;color:black;text-align:left;font-size:1.75rem;position:relative; left:-2%;width:33%;">Debugging JavaScript</h2>
+                  <p style="background-color:#e5f1fc;text-align:left;color:black;position:absolute;font-size:1.7rem;position:absolute; left:-2%;width:35%;"> 🕐 I know what / where it is! <br>🕑 No I don't… <br>🕒 I know what / where it is! <br>🕓 No I don't… <br>🕔 I know what / where it is! <br>😴<br><a href="https://medium.com/outsystems-experts/beyond-console-debugging-tricks-f7d0d7f5df4" target="_blank">Beyond Console Debugging Tricks</a>
+               </section>
+
+               <section>
+                  <h2 class="hljs" style="font-size:2.5rem; overflow:hidden; color: #fff;">~ hyperHTML: A Virtual DOM Alternative ~</h2>
+                  <p style="font-size:1.8rem;">Author: Andrea Giammarchi - @WebReflection</p>
+                  <p style="font-size:1.8rem;">Open-source: MIT Licence</p>
+                  <p style="font-size:1.8rem;">Virtual-dom allows you to update a view whenever state changes by creating a full VTree of the view and then patching the DOM efficiently to look exactly as you described it. This results in keeping manual DOM manipulation and previous state tracking out of your application code, promoting clean and maintainable rendering logic for web applications</p>
+                  <p style="font-size:1.8rem;"><a href="https://medium.com/@WebReflection/hyperhtml-a-virtual-dom-alternative-279db455ee0e" target="_blank">Medium: hyperHTML: A Virtual DOM Alternative</a><br />
+                     <a href="https://github.com/WebReflection/hyperHTML" target="_blank">Github: https://github.com/WebReflection/hyperHTML</a></p>
+               </section>
+            </section>
+
+            <section>
+               <section data-background-video="assets/videos/chap_5.mp4" data-background-color="#000000">
+                  <div style="background-color: rgba(0, 0, 0, 0.1); color: #fff; bottom: 0; font-size:1.2rem">
+                     <p class="fragment" style="background-color: rgba(0, 0, 0, 1); color: #fff;position:absolute; bottom:-1500%; width: 100%; font-size:1.5rem; z-index:5;">HeyheyHeyhey 50 kilos of potatoes</p>
+                     <p class="fragment" style="background-color: rgba(0, 0, 0, 1); color: #fff;position:absolute; bottom:-1500%; width: 100%; font-size:1.5rem; z-index:10;">a sack of sawdust...</p>
+                     <p class="fragment" style="background-color: rgba(0, 0, 0, 1); color: #fff;position:absolute; bottom:-1500%; width: 100%; font-size:1.5rem; z-index:15;">and 25 quarts of 3 stars Napoleon brandy came out of the alembic</p>
+                     <p class="fragment" style="background-color: rgba(0, 0, 0, 1); color: #fff;position:absolute; bottom:-1500%; width: 100%; font-size:1.5rem; z-index:15;">Jo the quiver was a true magician.</p>
+                     <p class="fragment" style="background-color: rgba(0, 0, 0, 1); color: #fff;position:absolute; bottom:-1500%; width: 100%; font-size:1.5rem; z-index:65;">&nbsp;</p>
+                     <p class="fragment" style="background-color: rgba(0, 0, 0, 1); font-size:3rem; position:absolute; left:20%; bottom:-800%; overflow:hidden; color: #fff; z-index:70;">&nbsp;&nbsp;Link Object in Cicurlation, <br>Movement inside and between<br>Navigation, Routes...&nbsp;&nbsp;</p>
+                  </div>
+               </section>
+
+               <section>
+                  <h2 class="hljs" style="font-size:2.3rem; overflow:hidden; color: #fff;">~ VideoLive Refactor ~</h2>
+                  <p style="font-size:1.8rem;">Live Video courses (first year of Medicine) and Live Video Events within the Portal</p>
+                  <p style="font-size:1.8rem;">Last Summer's two month work, we've renewed the all Video back end workflow to broadcast the medecine Video Courses in Live and VOD and intalled also OpenCast, a new LMS Moodle for the faculty of Medicine, and done two portlets for the Live Video and a moodle portlet and a developement in Moodle.</p>
+                  <a href="#/8/2" title="EmailPreview in uPortal 5">
+                     <img width="400" height="300" data-src="assets/artworks/videoLive.png" alt="Videolive in uPortal 5" />
+                  </a>
+               </section>
+               
+                <section>
+                  <h2 class="hljs" style="font-size:2.3rem; overflow:hidden; color: #fff;">~ Moodle Portlet ~</h2>
+                  
+                  <a href="#/8/3" title="EmailPreview in uPortal 5">
+                     <img width="550" height="500" data-src="assets/artworks/moodle-portlet.png" alt="Videolive in uPortal 5" />
+                  </a>
+               </section>
+
+               <section>
+                  <h2 class="hljs" style="font-size:2.5rem; overflow:hidden; color: #fff;">~ Opencast deployment  ~</h2>
+                  <p style="font-size:1.8rem;">We use Apereo Opencast to manage: the schedule of Live broadcast, the metadata, and the trans-coding of the VOD</p>
+                  <a href="#/8/4">
+                     <img width="600" height="270" data-src="assets/artworks/opencast.png" alt="back end dev" />
+                  </a>
+               </section>
+
+               <section data-transition="convex" data-background="assets/artworks/wowza-opencast.png">
+
+               </section>
+
+               <section>
+                  <h2 class="hljs" style="font-size:2.5rem; overflow:hidden; color: #fff;">~ The GPS Methaphor : Microservice (?)  ~</h2>
+                  <p style="font-size:1.8rem;">The Live Video is within the Portal And also within Moodle.</p>
+                  <p style="font-size:1.8rem;">It can be reached in several way, several routes to achieve your goal.</p>
+                  <a href="#/9">
+                     <img width="600" height="350" data-src="assets/artworks/gps.png" alt="google maps GPS" />
+                  </a>
+               </section>
+            </section>
+            
+            <section>
+               <section data-background-video="assets/videos/chap_7.mp4" data-background-color="#000000">
+                  <div style="background-color: rgba(0, 0, 0, 0.1); color: #fff; bottom: 0; font-size:1.2rem">
+                     <p class="fragment" style="background-color: rgba(0, 0, 0, 1); color: #fff;position:absolute; bottom:-1500%; width: 100%; font-size:1.5rem; z-index:5;">I wish I could get some real food.</p>
+                     <p class="fragment" style="background-color: rgba(0, 0, 0, 1); color: #fff;position:absolute; bottom:-1500%; width: 100%; font-size:1.5rem; z-index:65;">&nbsp;</p>
+                     <p class="fragment" style="background-color: rgba(0, 0, 0, 1); font-size:3rem; position:absolute; left:20%; bottom:-800%; overflow:hidden; color: #fff; z-index:70;">&nbsp;&nbsp;Bonus Track: WebGL testing <br />3D Objects in uPortal&nbsp;&nbsp;</p>
+                  </div>
+               </section>
+
+               <section>
+                  <h2 class="hljs" style="font-size:2.5rem; overflow:hidden; color: #fff;">~ About WebGL ~</h2>
+                  <ul>
+                     <blockquote style="font-size:1.8rem;">
+                        &ldquo;..WebGL is often thought of as a 3D API. People think "I'll use WebGL and magic I'll get cool 3d". In reality WebGL is just a rasterization engine. It draws points, lines, and triangles based on code you supply. Getting WebGL to do anything else is up to you to provide code to use points, lines, and triangles to accomplish your task.&rdquo;
+                     </blockquote>
+                     <a href="https://webglfundamentals.org/webgl/lessons/webgl-fundamentals.html"  style="display:block; font-size:1.8rem;">
+                        WebGLFundamentals.org
+                     </a>
+                  </ul>
+               </section>
+
+               <section>
+                  <h2 class="hljs" style="font-size:2.5rem; overflow:hidden; color: #fff;">~ The Pitch (true story) ~</h2>
+                  <p style="font-size:1.8rem;">I was worried last year because I was hearing a lot of people telling:<br />
+                     <i>&ldquo;You kown uPortal, it's an old stuff, we need new ideas, etc.&rdquo; </i><br />
+                     I was really annoyed by these things and my 4 years old son Theo saw me worried.<br />
+                     he asks me: <i>&ldquo;Daddy, what going on?&rdquo;</i><br />
+                     and I tried to explain him and Theo told me : <br />
+                     <i>&ldquo;Wait...&rdquo;</i><br />
+                     he ran into his bedroom and came back with a hotwheels car a Chevrolet camaro 1967, and giving me the little car, he told me :<br />
+                     <i>&ldquo;That's normal, 'cause you need a magical car&rdquo;</i></p>
+               </section>
+
+               <section>
+                  <h2 class="hljs" style="font-size:2.5rem; overflow:hidden; color: #fff;">~ Theo WebGL Portlet ~</h2>
+                  <cite style="font-size:1.8rem;">&ldquo;How to throw in 3D an OLD american car into an OLD Portal on an idea of a YOUNG boy.&rdquo;</cite>
+                  <div>
+                     <p style="font-size:1.8rem;">Demo</p>
+                     <a href="#/9/4" style="display: block;">
+                        <img width="200" height="200" data-src="assets/artworks/worm_hole.jpg" alt="Demo">
+                     </a>
+                  </div>
+               </section>
+
+               <section>
+                  <h2 class="hljs" style="font-size:2.5rem; overflow:hidden; color: #fff;">~  Three.js ~</h2>
+                  <p style="font-size:1.8rem;">Beginning with 3D WebGL (pt. x4)<br />
+                     <a href="https://codepen.io/rachsmith/post/beginning-with-3d-webgl-pt-1-the-scene" target="_blank">https://codepen.io/rachsmith/post/beginning-with-3d-webgl-pt-1-the-scene</a></p>
+                  <a href="#/9/5" title="">
+                     <img width="500" height="450" data-src="assets/artworks/3Dtheo.png" alt="WebGL Portlet displaying a chevrolet cammaro in uPortal">
+                  </a>
+               </section>
+               
+               <section>
+                  <h2 class="hljs" style="font-size:2.5rem; overflow:hidden; color: #fff;">~ uPortal Layout and WEBGL ~</h2>
+                  <p style="font-size:1.8rem;">Because WebGL Clipspace coordinates always go from -1 to +1 no matter what size your canvas is. I use a Fixed Layout grid not a fluid layout grid inside uPortal or it is possible to put the &lt;canvas&gt; element inside a modal or inside a new window, otherwise there could be distortion of the canvas when a user resize the window.</p>
+
+               </section>
+
+               <section>
+                  <h2 class="hljs" style="font-size:2.5rem; overflow:hidden; color: #fff;">~ Web Virtual Reality (WebVR) in uPortal - WIP Experimentations ~</h2>
+                  <a href="#/9/7" title="">
+                     <img width="500" height="470" data-src="assets/artworks/data-Reality-Bites-20171.png" alt="WebGL Portlet displaying a chevrolet cammaro in uPortal">
+                  </a>
+               </section>
+
+               <section>
+                  <h2 class="hljs" style="font-size:2.5rem; overflow:hidden; color: #fff;">~ WebVR in uPortal WIP Experimentations ~</h2>
+                  <p style="font-size:1.8rem;">Immersive experience</p>
+                  <p style="font-size:1.8rem;">Mozilla A-FRAME</p>
+                  <p style="font-size:1.8rem;">Facebook ReactVR</p>
+                  <p style="font-size:1.8rem;">Google webvr-polyfill</p>
+               </section>
+
+               <section>
+                  <a href="#/9/9" title="">
+                     <img width="600" height="340" data-src="assets/artworks/webVR360.png" alt="mobile scultpure of frontend">
+                  </a>
+               </section>
+
+               <section>
+                  <a href="#/9/10" title="">
+                     <img width="600" height="340" data-src="assets/artworks/museum.png" alt="mobile scultpure of frontend">
+                  </a>
+               </section>
+               
+               <section>
+                  <h2 class="hljs" style="font-size:2.5rem; overflow:hidden; color: #fff;">~ Why that ? ~</h2>
+                  <p style="font-size:1.8rem;">Because it's the future, a new interactivity...</p>
+                  <p style="font-size:1.8rem;">if it's possible to draw in 3D a car for a child...</p>
+                  <p style="font-size:1.8rem;">It's possible to draw in 3D other things for teachers in Science, Medicine and Arts, so let's make this possible... </p>
+               </section>
+            </section>
+
+            <section>
+               <section data-background-video="assets/videos/chap_8.mp4" data-background-color="#000000">
+                  <div style="background-color: rgba(0, 0, 0, 0.1); color: #fff; bottom: 0; font-size:1.2rem">
+                     <p class="fragment" style="background-color: rgba(0, 0, 0, 1); color: #fff;position:absolute; bottom:-1500%; width: 100%; font-size:1.5rem; z-index:5;">Gentlemen, </p>
+                     <p class="fragment" style="background-color: rgba(0, 0, 0, 1); color: #fff;position:absolute; bottom:-1500%; width: 100%; font-size:1.5rem; z-index:10;">I thank you for your attention.</p>
+                     <p class="fragment" style="background-color: rgba(0, 0, 0, 1); color: #fff;position:absolute; bottom:-1500%; width: 100%; font-size:1.5rem; z-index:65;">&nbsp;</p>
+                     <p class="fragment" style="background-color: rgba(0, 0, 0, 1); font-size:3rem; position:absolute; left:40%; bottom:-800%; overflow:hidden; color: #fff; z-index:70;">Questions? <span class="emoji">🙂❓</span>&nbsp;&nbsp;</p>
+                     <p class="fragment" style="background-color: rgba(0, 0, 0, 1); font-size:3rem; position:absolute; left:40%; bottom:-800%; overflow:hidden; color: #fff; z-index:70;">Thank you&nbsp;&nbsp;&nbsp;&nbsp;<span class="emoji">😄</span>&nbsp;&nbsp;</p>
+                  </div>
+               </section>
+            </section>
+         </div>
+      </div>
+
+      <script src="lib/js/head.min.js"></script>
+      <script src="js/reveal.js"></script>
+
+      <script>
+         // More info https://github.com/hakimel/reveal.js#configuration
+         Reveal.initialize({
+            history: true,
+
+            // More info https://github.com/hakimel/reveal.js#dependencies
+            dependencies: [
+               { src: 'plugin/markdown/marked.js' },
+               { src: 'plugin/markdown/markdown.js' },
+               { src: 'plugin/notes/notes.js', async: true },
+               { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+            ]
+         });
+      </script>
+   </body>
+</html>
